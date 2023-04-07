@@ -77,7 +77,7 @@ class Sniper:
             
             
     def sniper(self):
-        time.sleep(1.7)
+        time.sleep(0.3)
         url = f"https://discord.com/api/v9/users/@me"
         
         res = self.session.patch(url=url, json=self.json, timeout=5, headers = self.headers)
@@ -93,8 +93,8 @@ class Sniper:
                 
             elif res.status_code == 429:
                 logging.info(f"RATELIMITED : You sent way too many requests suffering from ratelimits")
-                b = res.json()
-                time.sleep(0.7)
+                
+                
                 self.sniper()
                 
             else:
